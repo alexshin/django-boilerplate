@@ -15,7 +15,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Third-party
-    'channels'
+    'channels',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [

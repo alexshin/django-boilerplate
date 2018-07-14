@@ -16,6 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from .settings import ENVIRONMENT
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
+
+
+# Swagger uses only in dev environment, but you can plug it for other envs too
+if ENVIRONMENT == 'dev':
+    from .env.openapi_urls import urlpatterns as openapi_urlpatterns
+    urlpatterns += openapi_urlpatterns

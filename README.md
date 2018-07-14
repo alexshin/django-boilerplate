@@ -48,6 +48,12 @@ If you don't know about Django-guardian, you should check
 [the documentation](https://django-guardian.readthedocs.io/en/stable/) ASAP. It will help you in every application
 you will create on Django.
 
+#### drf-yasg
+
+Yet another swagger generator helps to generate OpenAPI schema and viewer for Django Rest Framework views. See more 
+docs in [official documentation](https://drf-yasg.readthedocs.io/en/stable/index.html)
+
+_In dev environment you can check schema by `http://127.0.0.1:8000/swagger/` or `http://127.0.0.1:8000/redoc/`_
 
 ## Usage
 
