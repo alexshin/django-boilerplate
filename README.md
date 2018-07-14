@@ -49,6 +49,41 @@ If you don't know about Django-guardian, you should check
 you will create on Django.
 
 
+## Usage
+
+### Requirements
+
+* Python 3.7
+* Docker and Docker-compose (min version of Docker-compose format is 3.1)
+
+
+### Quick start
+
+```bash
+# Create project directory
+mkdir -p ./Projects/new-project && cd ./Projects/new-project
+
+# Clone this repository
+git clone git@github.com:alexshin/django-boilerplate.git .
+
+# Start database
+docker-compose up -d
+
+# Install requirements
+pip install -r ./requirements.txt
+
+# Change environment to development 
+export APP_ENVIRONMENT=dev
+
+# Traditional Django commands
+./src/manage.py makemigrations -y
+./src/manage.py migrate -y
+```
+
+Then you can remove git history `rm -rf ./.git`
+
+And start your own project. Enjoy it =)
+
 ## Contribution
 
 You can be free to ask me questions and suggest new batteries or changes. 
