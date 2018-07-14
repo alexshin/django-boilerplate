@@ -1,6 +1,10 @@
 from ..common import *
 
 DEBUG = True
+ALLOWED_HOSTS = []
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'b=c(untxoz5s!9sudc9u!)b%(w=029(0d2pzodl04m(3x35e=l'
 
 DATABASES = {
     'default': {
