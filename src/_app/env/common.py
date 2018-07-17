@@ -14,9 +14,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # Service
+    '_app.initial_data',
+
+    # App
+    'user',
+
     # Third-party
     'channels',
-    'rest_framework'
+    'rest_framework',
+    'guardian'
 ]
 
 MIDDLEWARE = [
@@ -90,3 +97,14 @@ STATIC_URL = '/static/'
 
 # Django-channels
 ASGI_APPLICATION = "_app.routing.application"
+
+
+# Users
+AUTH_USER_MODEL = 'user.User'
+ANONYMOUS_USER_NAME = 'anonymous@example.com'
+SUPERUSER_USER_NAME = 'admin@example.com'
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend', # this is default
+    'guardian.backends.ObjectPermissionBackend',
+)

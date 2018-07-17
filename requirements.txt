@@ -4,3 +4,4 @@ channels==2.1.2
 djangorestframework==3.8.2
 drf-yasg==1.9.1
 drf-yasg[validation]
+django-guardian==1.4.9

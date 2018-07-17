@@ -90,6 +90,19 @@ Then you can remove git history `rm -rf ./.git`
 
 And start your own project. Enjoy it =)
 
+
+### Working with initial data
+
+The boilerplate contains some basic modifications to work with initial data. Django has already had the same mechanism
+name "fixtures". But it works not very comfortable for real-world applications because need to append specific
+prepared data.
+
+Functionality of boilerplate enable you to create your own fixtures using Python code (I recommend you to look at
+Faker and Factory Boy but you can do it using plain Python too).
+
+Fixtures automatically apply after migrations in testing environment. In other environments you should execute console 
+command `apply_migrations`.
+
 ## Contribution
 
 You can be free to ask me questions and suggest new batteries or changes. 
