@@ -2,7 +2,9 @@ from typing import Iterable
 
 # Since Python 3.5 lists in Python is orderable
 fixtures = [
+    'create_base_groups',
     'user_create_superuser',
+    'create_email_templates'
 ]
 
 

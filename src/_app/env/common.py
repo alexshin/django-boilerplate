@@ -1,7 +1,9 @@
 import os
+from .user_groups import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+EMAIL_FIXTURES_BASE_DIR = os.path.join(BASE_DIR, '..', 'templates', 'emails')
 
 
 # Application definition
@@ -23,6 +25,7 @@ INSTALLED_APPS = [
     # Third-party
     'channels',
     'rest_framework',
+    'rest_framework.authtoken',
     'guardian',
     'post_office'
 ]
@@ -114,5 +117,23 @@ AUTHENTICATION_BACKENDS = (
 PLATFORM_API_VERSION = '0.0.1'
 
 
-# Post-office
+# Post-office and email
 EMAIL_BACKEND = 'post_office.EmailBackend'
+NOREPLY_EMAIL = 'noreply@example.com'
+
+# web-site
+BASE_URL = 'https://example.com'
+
+
+# rest framework
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}

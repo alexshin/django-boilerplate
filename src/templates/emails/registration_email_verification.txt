@@ -1,0 +1,13 @@
+Hi dear user,
+
+
+We congratulate you with registration on our platform. Your credentials to sign in:
+
+
+* email: {{ user.email }}
+* password: {{ plain_password }}
+
+
+Please click on the link to confirm your registration,
+
+{{ link }}

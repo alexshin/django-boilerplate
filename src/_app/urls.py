@@ -22,7 +22,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # API
-    path('api/v1/app/', include('_app.api.v1.urls'))
+    path('api/v1/app/', include('_app.api.v1.urls')),
+    path('', include('user.urls'))  # Each application should think about unique urls itself =(
 ]
 
 
@@ -30,3 +31,6 @@ urlpatterns = [
 if ENVIRONMENT == 'dev':
     from .env.openapi_urls import urlpatterns as openapi_urlpatterns
     urlpatterns += openapi_urlpatterns
+    urlpatterns += [
+        path('api-auth/', include('rest_framework.urls'))
+    ]
