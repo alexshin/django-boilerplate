@@ -23,7 +23,8 @@ INSTALLED_APPS = [
     # Third-party
     'channels',
     'rest_framework',
-    'guardian'
+    'guardian',
+    'post_office'
 ]
 
 MIDDLEWARE = [
@@ -111,3 +112,7 @@ AUTHENTICATION_BACKENDS = (
 
 # Platform
 PLATFORM_API_VERSION = '0.0.1'
+
+
+# Post-office
+EMAIL_BACKEND = 'post_office.EmailBackend'

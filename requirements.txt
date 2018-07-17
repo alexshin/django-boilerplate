@@ -5,3 +5,4 @@ djangorestframework==3.8.2
 drf-yasg==1.9.1
 drf-yasg[validation]
 django-guardian==1.4.9
+django-post_office==3.0.4
