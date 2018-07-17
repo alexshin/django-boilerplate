@@ -108,3 +108,6 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend', # this is default
     'guardian.backends.ObjectPermissionBackend',
 )
+
+# Platform
+PLATFORM_API_VERSION = '0.0.1'
