@@ -1,9 +1,9 @@
 import os
-from .user_groups import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-EMAIL_FIXTURES_BASE_DIR = os.path.join(BASE_DIR, '..', 'templates', 'emails')
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), '..', '..'))
+ASSETS_BASE_DIR = os.path.abspath(os.path.join(BASE_DIR, '..', 'assets'))
+STATIC_FIXTURES_BASE_DIR = os.path.abspath(os.path.join(ASSETS_BASE_DIR, 'fixtures'))
 
 
 # Application definition

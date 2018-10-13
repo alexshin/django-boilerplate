@@ -8,7 +8,7 @@ class InitialDataConfig(AppConfig):
     name = '_app.initial_data'
 
     def ready(self):
-        # We have to apply fixtures only in test environment
+        # We have to apply fixtures automatically only in test environment
         if ENVIRONMENT == 'test':
             from django.db.models.signals import post_migrate
             from .loaders import load

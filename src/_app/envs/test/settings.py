@@ -1,6 +1,6 @@
-from ..common import *
+from ..shared import *
 
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = []
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -16,5 +16,3 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
-INSTALLED_APPS += ['drf_yasg',]

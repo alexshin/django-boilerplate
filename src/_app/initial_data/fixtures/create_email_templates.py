@@ -4,7 +4,7 @@ from pathlib import Path as PathLib
 
 from post_office.models import EmailTemplate
 
-EMAIL_FIXTURES_BASE_DIR = settings.EMAIL_FIXTURES_BASE_DIR
+EMAIL_FIXTURES_BASE_DIR = path.join(settings.STATIC_FIXTURES_BASE_DIR, 'emails')
 
 
 TEMPLATES = [
@@ -25,7 +25,6 @@ def apply():
         template_name = template['name']
         template_subject = template['subject']
 
-
         for ext in ['html', 'txt']:
             filename = path.join(EMAIL_FIXTURES_BASE_DIR, f'{template_name}.{ext}')
 
@@ -35,7 +34,7 @@ def apply():
                 content[ext] = PathLib(filename).read_text(encoding='utf-8')
             else:
                 content[ext] = ''
-                print(f'[WARNING] file "{filename}" is absent!')
+                print(f'[WARNING] file "{filename}" is missed!')
 
         EmailTemplate.objects.create(
             name=template_name,
