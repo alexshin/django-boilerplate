@@ -20,6 +20,7 @@ User = get_user_model()
 
 class MeView(RetrieveUpdateAPIView):
     serializer_class = MeSerializer
+    http_method_names = ['get', 'put']
 
     def get_object(self):
         return self.request.user
@@ -79,7 +80,7 @@ class PasswordRecoveryView(GenericAPIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class PasswordRecoveryConfirmationView(UpdateAPIView):
+class PasswordRecoveryConfirmationView(GenericAPIView):
     queryset = User.objects.all()
     serializer_class = PasswordRecoveryConfirmationSerializer
     permission_classes = (AllowAny,)

@@ -98,12 +98,12 @@ name "fixtures". But it works not very comfortable for real-world applications b
 prepared data.
 
 Functionality of boilerplate enable you to create your own fixtures using Python code (I recommend you to look at
-Faker and Factory Boy but you can do it using plain Python too).
+Faker and Factory Boy to make creating of Django entities more smoothly but you can do it using plain Python too).
 
 Fixtures automatically apply after migrations in testing environment. In other environments you should execute console 
 command `apply_migrations`.
 
-## Contribution
+## Contributing
 
 You can be free to ask me questions and suggest new batteries or changes. 
 

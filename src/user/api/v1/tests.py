@@ -201,8 +201,8 @@ class PasswordRecoveryTestCase(APITestCase):
         self.test_user = User.objects.create_user(password='testpassword', email='recovery@example.com')
 
         # URLs for password recovery.
-        self.password_recovery_url = reverse('api-v1-user-password-recovery')
-        self.password_recovery_confirm_url = reverse('api-v1-user-password-recovery-confirm')
+        self.password_recovery_url = reverse('api-v1-user-request-password-recovery')
+        self.password_recovery_confirm_url = reverse('api-v1-user-confirm-password-recovery')
 
     def _get_context_and_token(self):
         context = send_password_recovery_code(user=self.test_user)
