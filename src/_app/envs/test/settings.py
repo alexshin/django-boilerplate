@@ -16,3 +16,5 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
+CORS_ORIGIN_ALLOW_ALL = True

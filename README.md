@@ -55,6 +55,11 @@ docs in [official documentation](https://drf-yasg.readthedocs.io/en/stable/index
 
 _In dev environment you can check schema by `http://127.0.0.1:8000/swagger/` or `http://127.0.0.1:8000/redoc/`_
 
+#### django-cors-headers
+
+Added headers to enable CORS. For more information see 
+[official documentation](https://github.com/ottoyiu/django-cors-headers/)
+
 ## Usage
 
 ### Requirements

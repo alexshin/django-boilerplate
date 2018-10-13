@@ -18,3 +18,5 @@ DATABASES = {
 }
 
 INSTALLED_APPS += ['drf_yasg',]
+
+CORS_ORIGIN_ALLOW_ALL = True
