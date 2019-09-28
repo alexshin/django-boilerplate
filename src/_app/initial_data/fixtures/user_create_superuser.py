@@ -7,5 +7,4 @@ User = get_user_model()
 
 
 def apply():
-    User = get_user_model()
     User.objects.create_superuser(email=SUPERUSER_USER_NAME, password='q1w2e3r4t5y6')

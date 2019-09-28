@@ -12,7 +12,8 @@ urlpatterns = [
     path('api/v1/users/me', MeView.as_view()),
     path('api/v1/users/register', RegisterUserView.as_view(), name='api-v1-user-register'),
     path('api/v1/users/confirm-email', EmailConfirmationView.as_view(), name='api-v1-user-confirm-email'),
-    path('api/v1/users/request-password-recovery', PasswordRecoveryView.as_view(), name='api-v1-user-request-password-recovery'),
+    path('api/v1/users/request-password-recovery', PasswordRecoveryView.as_view(),
+         name='api-v1-user-request-password-recovery'),
     path('api/v1/users/confirm-password-recovery', PasswordRecoveryConfirmationView.as_view(),
          name='api-v1-user-confirm-password-recovery'),
 ]

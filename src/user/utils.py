@@ -6,7 +6,8 @@ from post_office import mail
 from .tokens import user_activation_token
 
 
-User = get_user_model()
+User = get_user_model()  # pylint: disable=invalid-name
+
 BASE_URL = settings.BASE_URL
 NOREPLY_EMAIL = settings.NOREPLY_EMAIL
 
@@ -21,9 +22,9 @@ def get_client_ip(request):
 
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
     if x_forwarded_for:
-        ip = x_forwarded_for.split(',')[0]
+        ip = x_forwarded_for.split(',')[0]  # pylint: disable=invalid-name
     else:
-        ip = request.META.get('REMOTE_ADDR')
+        ip = request.META.get('REMOTE_ADDR')  # pylint: disable=invalid-name
     return ip
 
 

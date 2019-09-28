@@ -5,19 +5,17 @@ from django.contrib.auth.models import Group
 from django.conf import settings
 
 from guardian.shortcuts import assign_perm, remove_perm
-
+from .signals import user_registered, user_email_confirmed
 
 SUPERUSER_USER_NAME = settings.SUPERUSER_USER_NAME
 GROUPS = settings.GROUPS
-
-from .signals import user_registered, user_email_confirmed
 
 """
 It's not a good idea to assign users here because hard binding,
 but ability to manage all assignments in one place is a trade-off
 """
 
-User = get_user_model()
+User = get_user_model()  # pylint: disable=invalid-name
 
 
 @receiver(user_registered)

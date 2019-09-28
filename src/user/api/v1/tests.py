@@ -10,7 +10,7 @@ from guardian.shortcuts import remove_perm
 
 from ...utils import send_verification_code, send_password_recovery_code
 
-User = get_user_model()
+User = get_user_model()  # pylint: disable=invalid-name
 
 
 class UserTestCase(APITestCase):
@@ -32,7 +32,7 @@ class UserTestCase(APITestCase):
         response = self._get_token_response()
 
         self.assertEqual(response.status_code, 200)
-        self.assertTrue(response.data.get('token', False) != False)
+        self.assertTrue(response.data.get('token', False) is not False)
 
     def test_me_endpoint(self):
         response = self._get_token_response()
@@ -131,7 +131,7 @@ class UserRegistrationTestCase(APITestCase):
             'password': 'somepassword'
         }
         token = Token.objects.create(user=self.test_user)
-        self.client.credentials(HTTP_AUTHORIZATION=f'Token {token.key}')
+        self.client.credentials(HTTP_AUTHORIZATION=f'Token {token.key}')  # pylint: disable=no-member
 
         response = self.client.post(self.create_url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
@@ -144,7 +144,7 @@ class UserRegistrationTestCase(APITestCase):
         return context, token
 
     def test_email_confirmation_wrong_code(self):
-        context, token = self._get_context_and_token()
+        context, _ = self._get_context_and_token()
 
         # Wrong token
         data = {
@@ -155,7 +155,7 @@ class UserRegistrationTestCase(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
     def test_email_confirmation_wrong_user(self):
-        context, token = self._get_context_and_token()
+        _, token = self._get_context_and_token()
 
         # Wrong user
         data = {
@@ -281,4 +281,3 @@ class PasswordRecoveryTestCase(APITestCase):
 
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
         self.assertEqual(len(response.data['non_field_errors']), 1)
-

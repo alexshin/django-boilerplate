@@ -1,11 +1,9 @@
-from ..shared.urls import APPLICATION_URLS
-
 from django.urls import re_path, include, path
-
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
-
 from rest_framework import permissions
+
+from ..shared.urls import APPLICATION_URLS
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -19,7 +17,7 @@ schema_view = get_schema_view(
     validators=['flex', 'ssv'],
     public=True,
     permission_classes=(permissions.AllowAny,),
-)
+)  # pylint: disable=invalid-name
 
 APPLICATION_URLS += [
     re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=None), name='schema-json'),

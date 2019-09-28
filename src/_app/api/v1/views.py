@@ -11,7 +11,7 @@ PLATFORM_API_VERSION = settings.PLATFORM_API_VERSION
 class AppVersionView(APIView,):
     permission_classes = (AllowAny,)
 
-    def get(self, request, format=None):
+    def get(self, request, **kwargs):
         return Response({
             'platform': {
                 'api_ver': PLATFORM_API_VERSION,

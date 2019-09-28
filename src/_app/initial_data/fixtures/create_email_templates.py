@@ -1,6 +1,6 @@
 from os import path
-from django.conf import settings
 from pathlib import Path as PathLib
+from django.conf import settings
 
 from post_office.models import EmailTemplate
 

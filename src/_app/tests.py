@@ -7,7 +7,7 @@ from rest_framework.test import APITestCase, APIClient
 USERS = settings.USERS
 NOT_VERIFIED_USERS = settings.EMAIL_IS_NOT_VERIFIED_USERS
 
-User = get_user_model()
+User = get_user_model()  # pylint: disable=invalid-name
 
 
 class AuthorizedAPITestCase(APITestCase):

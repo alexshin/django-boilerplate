@@ -8,7 +8,7 @@ fixtures = [
 ]
 
 
-def load(include_fixtures: Iterable = None, *args, **kwargs):
+def load(include_fixtures: Iterable = None, **kwargs):
     """
     Loads fixtures. If include_fixtures is empty, all fixtures will be loaded and applied
     :param include_fixtures:

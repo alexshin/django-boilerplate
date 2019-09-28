@@ -1,4 +1,3 @@
-from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.core import exceptions
 import django.contrib.auth.password_validation as password_validators
@@ -8,7 +7,7 @@ from ...tokens import user_activation_token
 from ...signals import user_email_confirmed
 
 
-User = get_user_model()
+User = get_user_model()  # pylint: disable=invalid-name
 
 
 # Serializers define the API representation.
@@ -66,9 +65,9 @@ class EmailConfirmationSerializer(serializers.Serializer):
     user_id = serializers.IntegerField(required=True)
     code = serializers.CharField(required=True, max_length=255)
 
-    def validate(self, data):
-        user_id = data.get('user_id')
-        code = data.get('code')
+    def validate(self, attrs):
+        user_id = attrs.get('user_id')
+        code = attrs.get('code')
 
         user = User.objects.filter(id=user_id)
 
@@ -82,7 +81,7 @@ class EmailConfirmationSerializer(serializers.Serializer):
         if not user_activation_token.check_token(user=user, token=code):
             raise validators.ValidationError('Confirmation code is wrong')
 
-        return super().validate(data)
+        return super().validate(attrs)
 
     def create(self, validated_data):
         user = User.objects.get(id=validated_data.get('user_id'))
@@ -118,10 +117,10 @@ class PasswordRecoveryConfirmationSerializer(serializers.Serializer):
     password = serializers.CharField(min_length=8)
     password_confirmation = serializers.CharField(min_length=8)
 
-    def validate(self, data):
-        user_id = data.get('id')
+    def validate(self, attrs):
+        user_id = attrs.get('id')
         code = self.initial_data.get('code')
-        password = data.get('password')
+        password = attrs.get('password')
         password_confirmation = self.initial_data.get('password_confirmation')
 
         user = User.objects.filter(id=user_id)
@@ -143,7 +142,7 @@ class PasswordRecoveryConfirmationSerializer(serializers.Serializer):
         except exceptions.ValidationError as e:
             raise validators.ValidationError(e.message)
 
-        return super().validate(data)
+        return super().validate(attrs)
 
     def create(self, validated_data):
         raise exceptions.PermissionDenied()
