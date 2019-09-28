@@ -1,3 +1,5 @@
+![](https://github.com/alexshin/django-boilerplate/workflows/Tests/badge.svg)
+
 # Overview
 
 This django boilerplate had been done to solve some routine with creating new environment, installing based batteries 
