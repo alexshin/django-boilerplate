@@ -1,4 +1,4 @@
-django==2.2.5
+django==2.2.13
 psycopg2-binary==2.8.3
 channels==2.3.0
 djangorestframework==3.10.3
