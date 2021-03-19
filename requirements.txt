@@ -1,7 +1,7 @@
 django==2.2.5
 psycopg2-binary==2.8.3
 channels==2.3.0
-djangorestframework==3.10.3
+djangorestframework==3.11.2
 drf-yasg==1.16.1
 drf-yasg[validation]
 django-guardian==2.1.0
